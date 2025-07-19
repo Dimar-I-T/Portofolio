@@ -11,7 +11,6 @@ type SkillsButtonProps = {
 
 export default function SkillsButton(
     {
-        tujuan = "",
         text = "",
         namaFoto = "",
         texts = [""],
