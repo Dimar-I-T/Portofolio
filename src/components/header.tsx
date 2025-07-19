@@ -1,11 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 const Navbar: FC = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
-
     return (
         <div className="fixed max-w-[1300px] w-full h-16 px-5 top-[23px] left-1/2 transform -translate-x-1/2 z-100">
             <div className="rounded-2xl h-full w-full bg-objekBiru">

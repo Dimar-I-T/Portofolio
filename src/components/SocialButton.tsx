@@ -1,14 +1,19 @@
 "use client";
-import { motion } from "framer-motion";
 import Image from 'next/image';
 import React from "react";
+type SocialButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  text?: string;
+  tujuan?: string;
+  namaFoto?: string;
+};
 
-export default function SocialButton({ children, tujuan = "", className = "", text = "", namaFoto = "", durationAnim = 1, initY = 40, ...props }: any) {
+export default function SocialButton({
+  tujuan = "",
+  text = "",
+  namaFoto = "",
+}: SocialButtonProps) {
     return (
         <>
-
-
-
             <a
                 href={`${tujuan}`}
                 target="_blank"

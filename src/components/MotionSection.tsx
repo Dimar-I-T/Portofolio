@@ -2,7 +2,20 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-export default function MotionSection({ children, className = "", durationAnim = 1, initY = 40, ...props }: any) {
+type MotionSectionProps = {
+    children?: React.ReactNode;
+    className?: string;
+    texts?: string[];
+    durationAnim?: number;
+    initY?: number;
+};
+
+export default function MotionSection({ 
+  children,
+  className = "", 
+  durationAnim = 1, 
+  initY = 40, ...props 
+}: MotionSectionProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: initY }}

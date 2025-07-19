@@ -1,39 +1,25 @@
 "use client";
-import { motion } from "framer-motion";
 import Image from 'next/image';
 import React from "react";
 
 type SkillsButtonProps = {
-    children?: React.ReactNode;
     tujuan?: string;
-    className?: string;
     text?: string;
     namaFoto?: string;
     texts?: string[];
-    durationAnim?: number;
-    initY?: number;
-    [key: string]: any; // for ...props
 };
 
 export default function SkillsButton(
     {
-        children,
         tujuan = "",
-        className = "",
         text = "",
         namaFoto = "",
         texts = [""],
-        durationAnim = 1,
-        initY = 40,
-        ...props
     }: SkillsButtonProps
 ) {
     return (
         <>
-
-
             <a
-                href={`${tujuan}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-tulisanBiru/10 hover:bg-tulisanBiru/12 rounded-[20px] max-md:scale-90 size-full inline-block transition-transform duration-300 hover:scale-102"

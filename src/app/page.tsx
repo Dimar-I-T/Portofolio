@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Navbar from '@/components/header';
 import Image from 'next/image';
 import dynamic from "next/dynamic"
 const MotionSection = dynamic(() => import("@/components/MotionSection"), { ssr: false })
@@ -66,7 +65,7 @@ export default function Home() {
               </div>
               <div className="w-[632px] h-[62px] max-md:h-[auto] max-md:mt-3 md:mt-[24px] flex items-center max-md:max-w-[320px] max-md:w-full">
                 <h1 className="text-tulisanBiru font-medium text-[20px] max-md:text-[15px] leading-tight max-[900px]:text-justify">
-                  I'm a student at University of Indonesia majoring in Computer Engineering. I have a huge passion in the field of technology, especially in software.
+                  I&apos;m a student at University of Indonesia majoring in Computer Engineering. I have a huge passion in the field of technology, especially in software.
                 </h1>
               </div>
             </div>
