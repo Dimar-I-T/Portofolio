@@ -48,7 +48,7 @@ export default function SkillsButton(
                                 </h1>
                             </div>
                             <div className="h-[118px] mt-1 flex">
-                                <ul className="text-putih font-extralight text-[20px] leading-[1.1] list-disc pl-5 space-y-0">
+                                <ul className="text-putih font-extralight text-[clamp(18px,2vw,20px)] leading-[1.1] list-disc pl-5 space-y-0">
                                     {texts.map((t, index) => (
                                         <li key={index}>
                                             {t}

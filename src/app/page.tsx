@@ -37,7 +37,7 @@ export default function Home() {
                   }}
                 />
               </div> */}
-      <div className="max-[942px]:w-full items-center flex flex-col gap-2 w-[947px] h-auto px-10">
+      <div className="max-[942px]:w-full items-center flex flex-col gap-2 w-[947px] h-auto px-3">
         <MotionSection className="max-[942px]:w-full relative flex justify-between max-[900px]:flex-col max-[900px]:items-center w-[947px] mt-[120px] h-auto z-50">
           {/*pp*/}
           <div className="flex justify-center items-center max-md:w-[130px] max-md:h-[130px] w-[250.11px] h-[250.11px]">
@@ -129,15 +129,15 @@ export default function Home() {
           </div>
 
           <div className="w-full h-auto mt-[28px] grid grid-rows-2 max-[870px]:gap-[5px] gap-[21px]">
-            <div className="w-full transition-transform duration-300 h-auto grid min-[870px]:grid-cols-2 max-[870px]:gap-[5px] max-[870px]:grid-rows-2 max-[870px]:justify-items-center gap-[21px]">
-              <div className="relative w-[390px] h-[200px]">
+            <div className="transition-transform duration-300 h-auto grid min-[870px]:grid-cols-2 max-[870px]:gap-[5px] max-[870px]:grid-rows-2 max-[870px]:justify-items-center gap-[21px]">
+              <div className="relative max-[500px]:w-full w-[390px] h-[200px]">
                 <SkillsButton
                   namaFoto="cpp"
                   text="Competitive Programming"
                   texts={['C++, C, Python', 'Algorithms', 'Data Structure']}>
                 </SkillsButton>
               </div>
-              <div className="relative w-[390px] h-[200px]">
+              <div className="relative max-[500px]:w-full w-[390px] h-[200px]">
                 <SkillsButton
                   namaFoto="react"
                   text="Web Development"
@@ -146,14 +146,14 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full transition-transform duration-300 h-auto grid min-[870px]:grid-cols-2 max-[870px]:gap-[5px] max-[870px]:grid-rows-2 max-[870px]:justify-items-center gap-[21px]">
-              <div className="relative w-[390px] h-[200px]">
+              <div className="relative max-[500px]:w-full w-[390px] h-[200px]">
                 <SkillsButton
                   namaFoto="unity"
                   text="Game Development"
                   texts={['C#, Java', 'Unity', 'Object Oriented Programming']}>
                 </SkillsButton>
               </div>
-              <div className="relative w-[390px] h-[200px]">
+              <div className="relative max-[500px]:w-full w-[390px] h-[200px]">
                 <SkillsButton
                   namaFoto="math"
                   text="Mathematics"
