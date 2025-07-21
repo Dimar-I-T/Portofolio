@@ -68,7 +68,7 @@ export default function Home() {
           <div className="max-md:w-full max-md:mt-5 w-[632px] min-[900px]:h-[250.11px] max-[900px]:h-auto min-[900px]:items-center flex">
             <div className="w-[696.89px] h-[174px] max-md:w-full max-md:flex-col max-md:flex max-md:items-center">
               <div className="w-[596px] h-[55px] max-md:h-auto flex items-center max-md:w-full max-[900px]:justify-center">
-                <h1 className="text-putih font-extrabold text-[64px] max-[350px]:text-[10px] max-md:text-[29.3px]">
+                <h1 className="text-putih font-extrabold text-[64px] max-[350px]:text-[10px] max-md:text-[30px]">
                   Dimar Ilham Tamara
                 </h1>
               </div>
