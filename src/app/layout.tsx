@@ -36,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inconsolata.variable} antialiased`}
       >
-        <div className="justify-items-center">
+        <div className="justify-items-center bg-[black]">
             <Navbar/>
         </div>
         {children}

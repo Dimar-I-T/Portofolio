@@ -9,15 +9,29 @@ import SkillsButton from '@/components/SkillsButton';
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen flex justify-center">
+    <div className="w-full bg-[black] h-auto flex justify-center">
       <motion.div
-        className="fixed top-0 left-0 w-full h-[1400px] z-0 bg-code"
+        className="fixed top-0 left-0 w-full h-[1400px] z-5 bg-code"
         style={{
           backgroundSize: '85% auto',
           backgroundPosition: 'top',
           backgroundRepeat: 'no-repeat',
         }}
-        animate={{ opacity: [0.5, 1.5, 0.5] }}
+        animate={{ opacity: [0.3, 0.6, 0.3] }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      />
+      <motion.div
+        className="fixed top-0 left-0 w-full h-[1400px] z-5 bg-code"
+        style={{
+          backgroundSize: '85% auto',
+          backgroundPosition: 'top',
+          backgroundRepeat: 'no-repeat',
+        }}
+        animate={{ opacity: [0.3, 0.6, 0.3] }}
         transition={{
           duration: 4,
           repeat: Infinity,
@@ -121,7 +135,7 @@ export default function Home() {
           </div>
         </MotionSection>
 
-        <MotionSection className="relative max-[900px]:mt-[200px] flex flex-col w-[800px] h-[610px] mt-[109px] justify-center max-[900px]:w-full">
+        <MotionSection className="relative max-[900px]:mt-[80px] flex flex-col w-[800px] h-auto mt-[109px] justify-center max-[900px]:w-full">
           <div className="flex justify-center items-center w-full h-[55px]">
             <h1 className="text-[55px] max-[900px]:text-[35px] text-putih font-semibold">
               Skills & Projects
@@ -163,6 +177,11 @@ export default function Home() {
             </div>
           </div>
         </MotionSection>
+        <div className="w-full mt-10 h-15 pt-5">
+          <h1 className="text-putih text-center font-extralight text-[15px]">
+            &copy; Dimar Ilham Tamara
+          </h1>
+        </div>
       </div>
     </div>
   );
