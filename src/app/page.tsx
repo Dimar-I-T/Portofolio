@@ -51,7 +51,7 @@ export default function Home() {
                   }}
                 />
               </div> */}
-      <div className="max-[942px]:w-full items-center flex flex-col gap-2 w-[947px] h-auto px-3">
+      <div className="max-[942px]:w-full items-center flex flex-col gap-2 w-[947px] h-auto px-3 z-50">
         <MotionSection className="max-[942px]:w-full relative flex justify-between max-[900px]:flex-col max-[900px]:items-center w-[947px] mt-[120px] h-auto z-50">
           {/*pp*/}
           <div className="flex justify-center items-center max-md:w-[130px] max-md:h-[130px] w-[250.11px] h-[250.11px]">
