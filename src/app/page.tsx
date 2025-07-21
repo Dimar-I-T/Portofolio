@@ -135,7 +135,7 @@ export default function Home() {
           </div>
         </MotionSection>
 
-        <MotionSection className="relative max-[900px]:mt-[80px] flex flex-col w-[800px] h-auto mt-[109px] justify-center max-[900px]:w-full">
+        <MotionSection className="relative max-[900px]:mt-[50px] flex flex-col w-[800px] h-auto mt-[109px] justify-center max-[900px]:w-full">
           <div className="flex justify-center items-center w-full h-[55px]">
             <h1 className="text-[55px] max-[900px]:text-[35px] text-putih font-semibold">
               Skills & Projects
