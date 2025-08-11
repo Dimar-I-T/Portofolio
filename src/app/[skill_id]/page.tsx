@@ -85,7 +85,7 @@ export default function Skill() {
 
                 if (linksData.success) setDataLinks(linksData.data);
                 else alert(linksData.message);
-            } catch (error) {
+            } catch {
                 alert("Failed to fetch data");
             } finally {
                 setLoading(false);
