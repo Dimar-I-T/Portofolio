@@ -41,8 +41,8 @@ export default function Skill() {
         "logo": "",
         "deskripsi": ""
     });
-    const [dataTools, setDataTools] = useState<DataTools[]>();
-    const [dataLinks, setDataLinks] = useState<DataLinks[]>();
+    const [dataTools, setDataTools] = useState<DataTools[]>([]);
+    const [dataLinks, setDataLinks] = useState<DataLinks[]>([]);
 
     const id: ID = {
         'competitive-programming': 1,
@@ -58,56 +58,42 @@ export default function Skill() {
     }
 
     useEffect(() => {
-        const ambilDeskripsi = async () => {
-            const idValue = param_id();
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills/?id=${idValue}`, {
-                method: 'GET'
-            })
-
-            const data = await response.json();
-            if (data.success) {
-                setData(data.data);
-            } else {
-                alert(data.message);
-            }
-
+        const idValue = param_id();
+        if (!idValue) {
+            alert("Invalid skill_id param");
             setLoading(false);
+            return;
         }
 
-        const ambilTools = async () => {
-            const idValue = param_id();
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills-tools/?id=${idValue}`, {
-                method: 'GET'
-            })
+        const fetchAllData = async () => {
+            try {
+                const [descRes, toolsRes, linksRes] = await Promise.all([
+                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills/?id=${idValue}`),
+                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills-tools/?id=${idValue}`),
+                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/links/?id=${idValue}`)
+                ]);
 
-            const data = await response.json();
-            if (data.success) {
-                setDataTools(data.data);
-            } else {
-                alert(data.message);
-            }
+                const descData = await descRes.json();
+                const toolsData = await toolsRes.json();
+                const linksData = await linksRes.json();
 
-            setLoading(false);
-        }
+                if (descData.success) setData(descData.data);
+                else alert(descData.message);
 
-        const ambilLinks = async () => {
-            const idValue = param_id();
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/links/?id=${idValue}`, {
-                method: 'GET'
-            })
+                if (toolsData.success) setDataTools(toolsData.data);
+                else alert(toolsData.message);
 
-            const data = await response.json();
-            if (data.success) {
-                setDataLinks(data.data);
-            } else {
-                alert(data.message);
+                if (linksData.success) setDataLinks(linksData.data);
+                else alert(linksData.message);
+            } catch (error) {
+                alert("Failed to fetch data");
+            } finally {
+                setLoading(false);
             }
         }
 
-        ambilDeskripsi();
-        ambilTools();
-        ambilLinks();
-    }, [])
+        fetchAllData();
+    }, [params]);
 
     if (loading) {
         return (
@@ -126,12 +112,12 @@ export default function Skill() {
                     judul={data.judul}
                     logo={data.logo}
                     deskripsi={data.deskripsi}
-                    tools={dataTools ? dataTools : []}
+                    tools={dataTools}
                 ></SkillDeskripsi>
             </div>
             <Links
-            links={dataLinks ? dataLinks : []}
-            id={String(param_id())}>
+                links={dataLinks}
+                id={String(param_id())}>
             </Links>
         </div>
     )
