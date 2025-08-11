@@ -1,8 +1,8 @@
 'use client'
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
-import SkillDeskripsi from "./comps/Deskripsi/page"
-import Links from "./comps/Links/page"
+import SkillDeskripsi from "./comps/deskripsi"
+import Links from "./comps/links"
 
 interface ID {
     "competitive-programming": number,
