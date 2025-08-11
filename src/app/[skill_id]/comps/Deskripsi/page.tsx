@@ -10,7 +10,7 @@ interface Tools {
     s_logo: string,
 }
 
-type SkillDeskripsi = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+type SkillDeskripsi =  {
     judul: string,
     logo: string,
     deskripsi: string,
