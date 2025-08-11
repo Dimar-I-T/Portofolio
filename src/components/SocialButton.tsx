@@ -18,13 +18,13 @@ export default function SocialButton({
                 href={`${tujuan}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-tulisanBiru/10 hover:bg-tulisanBiru/12 rounded-[20px] size-full inline-block text-center transition-transform duration-300 hover:scale-105"
+                className="bg-tulisanBiru/10 hover:bg-tulisanBiru/12 drop-shadow-[0_0_10px_#00006E] backdrop-blur-xs rounded-[20px] size-full inline-block text-center transition-transform duration-300 hover:scale-105"
             >
                 <div className="absolute border-white size-full">
                     <div className="max-md:ml-3 ml-1 relative grid grid-cols-3 size-full">
                         <div className="flex justify-center items-center">
                             <Image
-                                src={`/${namaFoto}.png`}
+                                src={namaFoto}
                                 alt="github"
                                 height={41}
                                 width={41}

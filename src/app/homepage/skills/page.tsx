@@ -16,6 +16,7 @@ const skills = () => {
                 <div className="transition-transform duration-300 h-auto grid min-[870px]:grid-cols-2 max-[870px]:gap-[5px] max-[870px]:grid-rows-2 max-[870px]:justify-items-center gap-[21px]">
                     <div className="relative max-[500px]:w-full w-[390px] h-[200px]">
                         <SkillsButton
+                            tujuan='competitive-programming'
                             namaFoto="cpp"
                             text="Competitive Programming"
                             texts={['C++, C, Python', 'Algorithms', 'Data Structure']}>
@@ -23,6 +24,7 @@ const skills = () => {
                     </div>
                     <div className="relative max-[500px]:w-full w-[390px] h-[200px]">
                         <SkillsButton
+                            tujuan='web-development'
                             namaFoto="react"
                             text="Web Development"
                             texts={['TypeScript, SQL', 'React.js, Next.js', 'Tailwind CSS']}>
@@ -32,6 +34,7 @@ const skills = () => {
                 <div className="w-full transition-transform duration-300 h-auto grid min-[870px]:grid-cols-2 max-[870px]:gap-[5px] max-[870px]:grid-rows-2 max-[870px]:justify-items-center gap-[21px]">
                     <div className="relative max-[500px]:w-full w-[390px] h-[200px]">
                         <SkillsButton
+                            tujuan='game-development'
                             namaFoto="unity"
                             text="Game Development"
                             texts={['C#, Java', 'Unity', 'Object Oriented Programming']}>
@@ -39,6 +42,7 @@ const skills = () => {
                     </div>
                     <div className="relative max-[500px]:w-full w-[390px] h-[200px]">
                         <SkillsButton
+                            tujuan='mathematics'
                             namaFoto="math"
                             text="Mathematics"
                             texts={['Calculus', 'Discrete Mathematics', 'Linear Algebra']}>

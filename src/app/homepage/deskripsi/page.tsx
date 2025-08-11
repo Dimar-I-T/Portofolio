@@ -15,7 +15,7 @@ const deskripsi = () => {
                         alt="profilePicture10"
                         height={210}
                         width={210}
-                        className="rounded-full object-cover object-center"
+                        className="rounded-full shadow-[0_0_170px_#00006E] object-cover object-center"
                     />
                 </div>
 
@@ -33,7 +33,7 @@ const deskripsi = () => {
                             </h1>
                         </div>
                         <div className="w-[632px] h-[62px] max-md:h-[auto] max-md:mt-3 md:mt-[24px] flex items-center max-md:max-w-[320px] max-md:w-full">
-                            <h1 className="text-tulisanBiru font-medium text-[20px] max-md:text-[15px] leading-tight max-[900px]:text-justify">
+                            <h1 className="text-tulisanBiru font-medium text-justify text-[20px] max-md:text-[15px] leading-tight max-[900px]:text-justify">
                                 I&apos;m a student at University of Indonesia majoring in Computer Engineering. I have a huge passion in the field of technology, especially in software.
                             </h1>
                         </div>
@@ -50,7 +50,7 @@ const deskripsi = () => {
                     </div>
                     <div className="mt-[30px] h-[132px] flex items-center">
                         <h1 className="text-[24px] font-semibold text-tulisanBiru">
-                            You can find me here coding, sharing projects, or just being me online.
+                            Connect with me, explore my projects, and see my coding journey.
                         </h1>
                     </div>
                 </div>
@@ -58,15 +58,15 @@ const deskripsi = () => {
                     <div className="grid grid-cols-2 gap-[44px] max-md:gap-[20px]">
                         <div className="relative">
                             <SocialButton
-                                namaFoto="github"
-                                text="Github"
+                                namaFoto={'https://res.cloudinary.com/dpdyf6ofg/image/upload/v1754900825/githubb_v1o4lx.png'}
+                                text="GitHub"
                                 tujuan="https://github.com/Dimar-I-T">
                             </SocialButton>
                         </div>
                         <div className="relative">
                             <SocialButton
-                                namaFoto="linkedin"
-                                text="Linkedin"
+                                namaFoto="https://res.cloudinary.com/dpdyf6ofg/image/upload/v1754900983/linkedin_pe7zlj.png"
+                                text="LinkedIn"
                                 tujuan="https://linkedin.com/in/dimar-ilham-tamara-b145b7315">
                             </SocialButton>
                         </div>
@@ -74,14 +74,14 @@ const deskripsi = () => {
                     <div className=" grid grid-cols-2 gap-[44px] max-md:gap-[20px]">
                         <div className="relative">
                             <SocialButton
-                                namaFoto="leetcode"
+                                namaFoto="https://res.cloudinary.com/dpdyf6ofg/image/upload/v1754883737/leetcode_d4mh1r.png"
                                 text="LeetCode"
                                 tujuan="https://leetcode.com/u/noobCoderHehe/">
                             </SocialButton>
                         </div>
                         <div className="relative">
                             <SocialButton
-                                namaFoto="youtube"
+                                namaFoto="https://res.cloudinary.com/dpdyf6ofg/image/upload/v1754899169/3146788_youtube_logo_icon_s6rzcv.png"
                                 text="YouTube"
                                 tujuan="https://www.youtube.com/@dimartamara1">
                             </SocialButton>

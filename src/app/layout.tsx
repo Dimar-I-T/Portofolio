@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inconsolata } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/header";
+import Bg_code from './homepage/bg/page'
 
 const inconsolata = Inconsolata({
   variable: "--font-inconsolata",
@@ -37,9 +38,17 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inconsolata.variable} antialiased`}
       >
         <div className="justify-items-center bg-[black]">
-            <Navbar/>
+          <Navbar />
         </div>
-        {children}
+        <div className="bg-[black]">
+          <Bg_code />
+          {children}
+          <div className="w-full mt-10 h-15 pt-5">
+            <h1 className="text-putih text-center font-extralight text-[15px]">
+              &copy; Dimar Ilham Tamara
+            </h1>
+          </div>
+        </div>
       </body>
     </html>
   );

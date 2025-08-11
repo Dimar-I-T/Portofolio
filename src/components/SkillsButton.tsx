@@ -1,6 +1,7 @@
 "use client";
 import Image from 'next/image';
 import React from "react";
+import { useRouter } from 'next/navigation';
 
 type SkillsButtonProps = {
     tujuan?: string;
@@ -11,17 +12,22 @@ type SkillsButtonProps = {
 
 export default function SkillsButton(
     {
+        tujuan='competitive-programming',
         text = "",
         namaFoto = "",
         texts = [""],
     }: SkillsButtonProps
 ) {
+    const router = useRouter();
     return (
         <>
             <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-tulisanBiru/10 hover:bg-tulisanBiru/12 rounded-[20px] max-md:scale-90 size-full inline-block transition-transform duration-300 hover:scale-102"
+                onClick={() => {
+                    router.push(`/${tujuan}`);
+                }}
+                className="bg-tulisanBiru/10 hover:bg-tulisanBiru/12 drop-shadow-[0_0_10px_#00006E] backdrop-blur-xs rounded-[20px] max-md:scale-90 size-full inline-block transition-transform duration-300 hover:scale-102"
             >
                 <div className="absolute pt-[17px] w-full h-auto">
                     <div className="flex pl-[49px]">
