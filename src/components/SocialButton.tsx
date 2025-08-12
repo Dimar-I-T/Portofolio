@@ -1,24 +1,32 @@
 "use client";
+import { px } from 'framer-motion';
 import Image from 'next/image';
 import React from "react";
 type SocialButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   text?: string;
   tujuan?: string;
   namaFoto?: string;
+  bagi?: number;
 };
 
 export default function SocialButton({
   tujuan = "",
   text = "",
   namaFoto = "",
+  bagi=10
 }: SocialButtonProps) {
+    let textt = text;
+    if (text.length > 12){
+        textt = text.substring(0, 6) + " " + text.substring(6, text.length);
+    }
+
     return (
         <>
             <a
                 href={`${tujuan}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-tulisanBiru/10 hover:bg-tulisanBiru/12 drop-shadow-[0_0_10px_#00006E] backdrop-blur-xs rounded-[20px] size-full inline-block text-center transition-transform duration-300 hover:scale-105"
+                className={`bg-tulisanBiru/${bagi} hover:bg-tulisanBiru/${bagi + 2} md2:drop-shadow-[0_0_100px_#00006E] backdrop-blur-xs rounded-[20px] size-full inline-block text-center transition-transform duration-300 hover:scale-105`}
             >
                 <div className="absolute border-white size-full">
                     <div className="max-md:ml-3 ml-1 relative grid grid-cols-3 size-full">
@@ -32,8 +40,8 @@ export default function SocialButton({
                             />
                         </div>
                         <div className="col-span-2 flex justify-center items-center">
-                            <h1 className="pointer-events-none select-none text-putih font-light text-[25px] max-md:text-[15px] max-md:mr-7 mr-10">
-                                {text}
+                            <h1 className={`pointer-events-none select-none text-putih font-light leading-tight text-[25px] max-md:text-[15px] max-md:mr-7 mr-10`}>
+                                {textt}
                             </h1>
                         </div>
                     </div>

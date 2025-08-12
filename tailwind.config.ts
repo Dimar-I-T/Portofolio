@@ -7,12 +7,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
-        backgroundImage:{
-            backgroundCode: "url('/codeBG.png')",
-            potoProfil: "url('/profilePicture.png')"
-        }
+      screens: {
+        'md2': '1000px',
+        'max-md2': { max: '999px' },
+      },
+      backgroundImage: {
+        backgroundCode: "url('/codeBG.png')",
+        potoProfil: "url('/profilePicture.png')"
+      }
     },
   },
   plugins: [],
 }
+
 export default config

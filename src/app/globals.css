@@ -21,6 +21,8 @@
   --color-tulisanBiru: #80BCEB;
   --color-objekBiru: #000044;
   --color-putih: #DFEFFF;
+  --breakpoint-md2: 62.5rem;
+  --breakpoint-sm2: 25rem;
 }
 
 @media (prefers-color-scheme: dark) {

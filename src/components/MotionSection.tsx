@@ -8,18 +8,20 @@ type MotionSectionProps = {
     texts?: string[];
     durationAnim?: number;
     initY?: number;
+    initX?: number;
 };
 
 export default function MotionSection({ 
   children,
   className = "", 
   durationAnim = 1, 
+  initX = 0,
   initY = 40, ...props 
 }: MotionSectionProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: initY }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: initX, y: initY }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       transition={{ duration: durationAnim, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
       className={className}

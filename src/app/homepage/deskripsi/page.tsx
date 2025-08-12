@@ -7,7 +7,10 @@ const MotionSection = dynamic(() => import("@/components/MotionSection"), { ssr:
 const deskripsi = () => {
     return (
         <>
-            <MotionSection className="max-[942px]:w-full relative flex justify-between max-[900px]:flex-col max-[900px]:items-center w-[947px] mt-[120px] h-auto z-50">
+            <MotionSection
+                initX={40}
+                initY={0}
+                className="max-[942px]:w-full relative flex justify-between max-[900px]:flex-col max-[900px]:items-center w-[947px] mt-[120px] h-auto z-50">
                 {/*pp*/}
                 <div className="flex justify-center items-center max-md:w-[130px] max-md:h-[130px] w-[250.11px] h-[250.11px]">
                     <Image
@@ -41,7 +44,10 @@ const deskripsi = () => {
                 </div>
             </MotionSection>
 
-            <MotionSection className="relative flex max-md:mt-[15px] mt-[46px] w-[845px] h-[214px] max-[900px]:max-w-[650px] max-md:w-[330px] max-[900px]:w-full">
+            <MotionSection
+                initX={-40}
+                initY={0}
+                className="relative flex max-md:mt-[15px] mt-[46px] w-[845px] h-[214px] max-[900px]:max-w-[650px] max-md:w-[330px] max-[900px]:w-full">
                 <div className="max-[900px]:hidden w-[267px] h-[214px]">
                     <div className="h-[47px] flex items-center">
                         <h1 className="text-[55px] font-semibold text-putih">

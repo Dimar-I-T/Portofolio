@@ -40,7 +40,7 @@ export default function RootLayout({
         <div className="justify-items-center bg-[black]">
           <Navbar />
         </div>
-        <div className="bg-[black]">
+        <div className="bg-[black] w-full min-h-screen">
           <Bg_code />
           {children}
           <div className="w-full mt-10 h-15 pt-5">

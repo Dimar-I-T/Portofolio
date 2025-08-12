@@ -27,7 +27,7 @@ export default function SkillsButton(
                 onClick={() => {
                     router.push(`/${tujuan}`);
                 }}
-                className="bg-tulisanBiru/10 hover:bg-tulisanBiru/12 drop-shadow-[0_0_10px_#00006E] backdrop-blur-xs rounded-[20px] max-md:scale-90 size-full inline-block transition-transform duration-300 hover:scale-102"
+                className="bg-tulisanBiru/10 hover:bg-tulisanBiru/12 md2:drop-shadow-[0_0_100px_#00006E] backdrop-blur-xs rounded-[20px] max-md:scale-90 size-full inline-block transition-transform duration-300 hover:scale-102"
             >
                 <div className="absolute pt-[17px] w-full h-auto">
                     <div className="flex pl-[49px]">

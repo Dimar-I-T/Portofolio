@@ -107,7 +107,7 @@ export default function Skill() {
 
     return (
         <div className="bg-[black] w-full min-h-screen flex flex-col items-center">
-            <div className="flex justify-center">
+            <div className="flex w-full h-auto justify-center">
                 <SkillDeskripsi
                     judul={data.judul}
                     logo={data.logo}
