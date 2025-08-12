@@ -3,6 +3,7 @@ import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import SkillDeskripsi from "./comps/deskripsi"
 import Links from "./comps/links"
+import Image from "next/image"
 
 interface ID {
     "competitive-programming": number,
@@ -98,9 +99,13 @@ export default function Skill() {
     if (loading) {
         return (
             <div className="bg-[black] w-full min-h-screen flex justify-center items-center">
-                <div className="opacity-50">
-                    <p>Loading...</p>
-                </div>
+                <Image
+                    src="/sLogo.png"
+                    alt="sLogo"
+                    width={64}
+                    height={64}
+                    className="rounded-full object-cover animate-spin"
+                />
             </div>
         );
     }
