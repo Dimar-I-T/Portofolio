@@ -1,5 +1,4 @@
 "use client";
-import { px } from 'framer-motion';
 import Image from 'next/image';
 import React from "react";
 type SocialButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
