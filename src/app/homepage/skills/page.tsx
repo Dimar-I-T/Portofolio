@@ -26,7 +26,7 @@ const skills = () => {
                             tujuan='competitive-programming'
                             namaFoto="cpp"
                             text="Competitive Programming"
-                            texts={['C++, C, Python', 'Algorithms', 'Data Structure']}>
+                            texts={['C++, C, C#', 'Algorithms', 'Data Structure']}>
                         </SkillsButton>
                     </MotionSection>
                     <MotionSection
@@ -37,7 +37,7 @@ const skills = () => {
                             tujuan='web-development'
                             namaFoto="react"
                             text="Web Development"
-                            texts={['TypeScript, SQL', 'React.js, Next.js', 'Tailwind CSS']}>
+                            texts={['TypeScript, SQL', 'React.js, Next.js, Django', 'Tailwind CSS']}>
                         </SkillsButton>
                     </MotionSection>
                 </div>
@@ -51,7 +51,7 @@ const skills = () => {
                             tujuan='game-development'
                             namaFoto="unity"
                             text="Game Development"
-                            texts={['C#, Java', 'Unity', 'Object Oriented Programming']}>
+                            texts={['C#', 'Unity', 'Object Oriented Programming']}>
                         </SkillsButton>
                     </MotionSection>
                     <MotionSection
