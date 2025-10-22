@@ -69,9 +69,9 @@ export default function Skill() {
         const fetchAllData = async () => {
             try {
                 const [descRes, toolsRes, linksRes] = await Promise.all([
-                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills/?id=${idValue}`),
-                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills-tools/?id=${idValue}`),
-                    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/links/?id=${idValue}`)
+                    fetch(`/api-user/skills?id=${idValue}`),
+                    fetch(`/api-user/skills-tools?id=${idValue}`),
+                    fetch(`/api-user/links?id=${idValue}`)
                 ]);
 
                 const descData = await descRes.json();
