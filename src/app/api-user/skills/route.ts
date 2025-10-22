@@ -1,4 +1,5 @@
 import { Pool } from "pg";
+import { NextResponse } from 'next/server';
 
 const pool = new Pool({
   connectionString: process.env.DB_URL,
@@ -22,7 +23,8 @@ export async function GET(req: Request) {
       message: `berhasil mengambil skill ${JSON.stringify(result.rows[0])}`,
       data: dataJson,
     });
-  } catch (error: any) {
-    return Response.json({ success: false, message: error.message });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ success: false, message }, { status: 500 });
   }
 }
