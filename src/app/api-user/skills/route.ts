@@ -11,7 +11,25 @@ export async function GET(req: Request) {
     const id = searchParams.get("id");
 
     if (!id) {
-      return Response.json({ success: false, message: "id tidak ada" }, { status: 400 });
+      const text = 'select judul from main_skills';
+      const result = await pool.query(text);
+      const data: {judul: string}[] = result.rows; 
+      for (let x = 0; x < data.length; x++) {
+        data[x].judul = data[x].judul.trim().replace(' ', '-').toLowerCase();
+      }
+
+      const dataToSend: {skill_id: string}[] = [];
+      for (let x = 0; x < data.length; x++) {
+        dataToSend.push({
+          skill_id: data[x].judul
+        });
+      }
+
+      return Response.json({
+        success: true,
+        message: 'berhasil mendapatkan semua main skill',
+        data: dataToSend
+      })
     }
 
     const text = "SELECT s_id, judul, logo, deskripsi FROM main_skills WHERE s_id = $1";

@@ -1,9 +1,11 @@
-'use client'
-import { useParams } from "next/navigation"
-import { useEffect, useState } from "react"
-import SkillDeskripsi from "./comps/deskripsi"
-import Links from "./comps/links"
+'use server'
+import SkillClient from "./comps/skill_client"
 import Image from "next/image"
+import { Pool } from "pg";
+
+const pool = new Pool({
+  connectionString: process.env.DB_URL,
+});
 
 interface ID {
     "competitive-programming": number,
@@ -33,17 +35,22 @@ interface DataTools {
     "s_logo": string,
 }
 
-export default function Skill() {
-    const [loading, setLoading] = useState(true);
-    const params = useParams();
-    const [data, setData] = useState<Data>({
-        "s_id": "",
-        "judul": "",
-        "logo": "",
-        "deskripsi": ""
-    });
-    const [dataTools, setDataTools] = useState<DataTools[]>([]);
-    const [dataLinks, setDataLinks] = useState<DataLinks[]>([]);
+interface SkillProps {
+    params: Promise<{ skill_id: string }>
+}
+
+export default async function Skill({ params }: SkillProps) {
+    const paramsBenar = await params;
+    const skillId = paramsBenar.skill_id;
+    let loading = true;
+    let dataTools: DataTools[] = [];
+    let dataLinks: DataLinks[] = [];
+    let data: Data = {
+        s_id: "",
+        judul: "",
+        logo: "",
+        deskripsi: ""
+    };
 
     const id: ID = {
         'competitive-programming': 1,
@@ -53,48 +60,37 @@ export default function Skill() {
     }
 
     const param_id = () => {
-        if (typeof params.skill_id === 'string' && params.skill_id in id) {
-            return id[params?.skill_id as keyof ID];
+        if (typeof skillId === 'string' && skillId in id) {
+            return id[skillId as keyof ID];
         }
     }
 
-    useEffect(() => {
-        const idValue = param_id();
-        if (!idValue) {
-            alert("Invalid skill_id param");
-            setLoading(false);
-            return;
-        }
+    const idValue = param_id();
 
-        const fetchAllData = async () => {
-            try {
-                const [descRes, toolsRes, linksRes] = await Promise.all([
-                    fetch(`/api-user/skills?id=${idValue}`),
-                    fetch(`/api-user/skills-tools?id=${idValue}`),
-                    fetch(`/api-user/links?id=${idValue}`)
-                ]);
+    try {
+        const [descRes, toolsRes, linksRes] = await Promise.all([
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills?id=${idValue}`),
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills-tools?id=${idValue}`),
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/links?id=${idValue}`)
+        ]);
 
-                const descData = await descRes.json();
-                const toolsData = await toolsRes.json();
-                const linksData = await linksRes.json();
+        const descData = await descRes.json();
+        const toolsData = await toolsRes.json();
+        const linksData = await linksRes.json();
 
-                if (descData.success) setData(descData.data);
-                else alert(descData.message);
+        if (descData.success) data = { ...descData.data };
+        else console.log(descData.message);
 
-                if (toolsData.success) setDataTools(toolsData.data);
-                else alert(toolsData.message);
+        if (toolsData.success) dataTools = [...toolsData.data];
+        else console.log(toolsData.message);
 
-                if (linksData.success) setDataLinks(linksData.data);
-                else alert(linksData.message);
-            } catch {
-                alert("Failed to fetch data");
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        fetchAllData();
-    }, [params]);
+        if (linksData.success) dataLinks = [...linksData.data];
+        else console.log(linksData.message);
+    } catch {
+        console.log("Failed to fetch data");
+    } finally {
+        loading = false;
+    }
 
     if (loading) {
         return (
@@ -111,19 +107,30 @@ export default function Skill() {
     }
 
     return (
-        <div className="bg-[black] w-full min-h-screen flex flex-col items-center">
-            <div className="flex w-full h-auto justify-center">
-                <SkillDeskripsi
-                    judul={data.judul}
-                    logo={data.logo}
-                    deskripsi={data.deskripsi}
-                    tools={dataTools}
-                ></SkillDeskripsi>
-            </div>
-            <Links
-                links={dataLinks}
-                id={String(param_id())}>
-            </Links>
-        </div>
+        <SkillClient
+            skill_id={skillId}
+            data={data}
+            dataTools={dataTools}
+            dataLinks={dataLinks}
+        />
     )
-} 
+}
+
+export async function generateStaticParams() {
+    const text = 'select judul from main_skills';
+    const result = await pool.query(text);
+    const data: { judul: string }[] = result.rows;
+    for (let x = 0; x < data.length; x++) {
+        data[x].judul = data[x].judul.trim().replace(' ', '-').toLowerCase();
+    }
+
+    const skills: { skill_id: string }[] = [];
+    for (let x = 0; x < data.length; x++) {
+        skills.push({
+            skill_id: data[x].judul
+        });
+    }
+
+    return skills;
+}
+
