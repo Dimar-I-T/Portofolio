@@ -1,9 +1,5 @@
-import { Pool } from "pg";
 import { NextResponse } from 'next/server';
-
-const pool = new Pool({
-  connectionString: process.env.DB_URL,
-});
+import { getSkillTools } from "@/services/skillService";
 
 export async function GET(req: Request) {
   try {
@@ -14,13 +10,12 @@ export async function GET(req: Request) {
       return Response.json({ success: false, message: "id tidak ada" }, { status: 400 });
     }
 
-    const text = "SELECT id, s_judul, s_logo FROM tools WHERE s_id = $1 ORDER BY id";
-    const result = await pool.query(text, [id]);
+    const result = await getSkillTools(id);
 
     return Response.json({
       success: true,
-      message: `berhasil mengambil tools ${JSON.stringify(result.rows[0])}`,
-      data: result.rows,
+      message: `berhasil mengambil tools`,
+      data: result,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";

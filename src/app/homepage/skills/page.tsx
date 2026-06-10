@@ -10,7 +10,7 @@ const skills = () => {
                 initX={40}
                 initY={0}
                 className="flex justify-center items-center w-full h-[55px]">
-                <h1 className="text-[55px] max-[900px]:text-[35px] text-putih font-semibold">
+                <h1 className="text-[55px] max-[900px]:text-[35px] text-center text-putih font-semibold">
                     Skills & Projects
                 </h1>
             </MotionSection>

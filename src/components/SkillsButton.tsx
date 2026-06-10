@@ -41,7 +41,7 @@ export default function SkillsButton(
                             />
                         </div>
                         <div className="ml-[24px] flex items-center w-[200px] h-[60px]">
-                            <h1 className="text-putih leading-tight text-[28px] font-medium">
+                            <h1 className="text-putih leading-tight text-[28px] max-md:text-[25px] font-medium">
                                 {text}
                             </h1>
                         </div>
@@ -49,12 +49,12 @@ export default function SkillsButton(
                     <div className="pl-[49px] w-full h-[173px]">
                         <div className="w-[320px] mt-[14px] h-[140px]">
                             <div className="h-[22px] flex items-center">
-                                <h1 className="text-putih font-medium text-[22px]">
+                                <h1 className="text-putih font-medium text-[20px]">
                                     Skills:
                                 </h1>
                             </div>
                             <div className="h-[118px] mt-1 flex">
-                                <ul className="text-putih font-extralight text-[clamp(18px,2vw,20px)] leading-[1.1] list-disc pl-5 space-y-0">
+                                <ul className="text-putih font-extralight text-[clamp(15px,2vw,18px)] leading-[1.1] list-disc pl-5 space-y-0">
                                     {texts.map((t, index) => (
                                         <li key={index}>
                                             {t}

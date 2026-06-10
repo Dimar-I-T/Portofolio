@@ -1,13 +1,15 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const Navbar: FC = () => {
     const router = useRouter();
     const [ditekan, setDitekan] = useState<boolean>(false);
+    const [visible, setVisible] = useState<boolean>(true);
+    const lastScrollY = useRef<number>(0);
     const tujuan = ['', 'Competitive Programming', 'Web Development', 'Game Development', 'Mathematics'];
     const tujuanAsli = ['competitive-programming', 'web-development', 'game-development', 'mathematics'];
 
@@ -15,8 +17,26 @@ const Navbar: FC = () => {
         setDitekan(prev => !prev);
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY < lastScrollY.current) {
+                setVisible(true);
+            } else if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+                setVisible(false);
+                setDitekan(false);
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <div className="fixed max-w-[1300px] w-full h-16 px-5 top-[23px] left-1/2 transform -translate-x-1/2 z-100">
+        <div className={`fixed max-w-[1300px] w-full h-16 px-5 top-[23px] left-1/2 transform -translate-x-1/2 ${visible ? "translate-y-0" : "-translate-y-[140%]"} transition-transform duration-300 z-100`}>
             <div className="rounded-2xl flex justify-between items-center h-full w-full bg-objekBiru">
                 <div className="flex ml-3 justify-center items-center w-[45px] h-[45px]">
                     <Link href="/">

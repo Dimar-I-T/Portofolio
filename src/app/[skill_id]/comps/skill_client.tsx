@@ -1,5 +1,7 @@
 'use client'
+import { Project } from "@/utils/types";
 import SkillDeskripsi from "./deskripsi"
+import Projects from '@/app/homepage/projects/Projects';
 import Links from "./links"
 
 interface Data {
@@ -27,7 +29,8 @@ type SkillProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     skill_id: string
     data: Data,
     dataTools: DataTools[],
-    dataLinks: DataLinks[]
+    dataLinks: DataLinks[],
+    projects: Project[]
 };
 
 interface ID {
@@ -37,7 +40,7 @@ interface ID {
     "mathematics": number,
 }
 
-export default function SkillClient({skill_id, data, dataTools, dataLinks}: SkillProps) {
+export default function SkillClient({ skill_id, data, dataTools, dataLinks, projects }: SkillProps) {
     const id: ID = {
         'competitive-programming': 1,
         'web-development': 2,
@@ -65,6 +68,9 @@ export default function SkillClient({skill_id, data, dataTools, dataLinks}: Skil
                 links={dataLinks}
                 id={String(param_id())}>
             </Links>
+            <div className="max-[1300px]:w-full items-center flex flex-col gap-2 w-[1300px] h-auto px-3 z-50">
+                <Projects projects={projects} />
+            </div>
         </div>
     )
 }

@@ -1,7 +1,10 @@
 'use server'
+import { getProjects } from "@/services/projectService";
 import SkillClient from "./comps/skill_client"
 import Image from "next/image"
 import { Pool } from "pg";
+import { Project } from "@/utils/types";
+import projects from "../homepage/projects/Projects";
 
 const pool = new Pool({
   connectionString: process.env.DB_URL,
@@ -45,6 +48,7 @@ export default async function Skill({ params }: SkillProps) {
     let loading = true;
     let dataTools: DataTools[] = [];
     let dataLinks: DataLinks[] = [];
+    let projectsData: Project[] = [];
     let data: Data = {
         s_id: "",
         judul: "",
@@ -68,6 +72,7 @@ export default async function Skill({ params }: SkillProps) {
     const idValue = param_id();
 
     try {
+        projectsData = await getProjects(idValue);
         const [descRes, toolsRes, linksRes] = await Promise.all([
             fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills?id=${idValue}`),
             fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills-tools?id=${idValue}`),
@@ -112,6 +117,7 @@ export default async function Skill({ params }: SkillProps) {
             data={data}
             dataTools={dataTools}
             dataLinks={dataLinks}
+            projects={projectsData}
         />
     )
 }
