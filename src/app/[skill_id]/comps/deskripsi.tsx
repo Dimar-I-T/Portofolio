@@ -2,6 +2,7 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import { optimizeUrl } from "@/utils/cloudinary";
 const MotionSection = dynamic(() => import("@/components/MotionSection"), { ssr: false })
 
 interface Tools {
@@ -38,7 +39,7 @@ export default function SkillDeskripsi(
             <div className="flex flex-row w-full max-md2:flex-col h-auto max-md2:items-center justify-center">
                 <div className="w-[181px] max-md2:w-[130px] h-auto">
                     {logo && <Image
-                        src={`${logo}`}
+                        src={`${optimizeUrl(logo)}`}
                         alt="img"
                         height={170}
                         width={170}
@@ -64,7 +65,7 @@ export default function SkillDeskripsi(
                             {tools.map((isi, indeks) => (
                                 <div key={indeks} className={`flex flex-row items-center transition-all duration-300 ease-in-out`}>
                                     <Image
-                                        src={isi.s_logo}
+                                        src={optimizeUrl(isi.s_logo)}
                                         alt="img"
                                         height={35}
                                         width={35}
