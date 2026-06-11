@@ -2,16 +2,50 @@
 import SocialButton from '@/components/SocialButton';
 import Image from 'next/image';
 import dynamic from "next/dynamic"
+import { useEffect, useState } from 'react';
 const MotionSection = dynamic(() => import("@/components/MotionSection"), { ssr: false })
 
+const ROLES = [
+    "Software Engineer",
+    "Full Stack Developer",
+    "Backend Developer",
+    "Game Developer",
+    "Competitive Programmer"
+];
+
 const deskripsi = () => {
+    const [displayedText, setDisplayedText] = useState('');
+    const [roleIndex, setRoleIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        const currentRole = ROLES[roleIndex];
+        let timeout: any;
+
+        if (!isDeleting && displayedText === currentRole) {
+            timeout = setTimeout(() => setIsDeleting(true), 1500);
+        } else if (isDeleting && displayedText === '') {
+            setIsDeleting(false);
+            setRoleIndex((prev) => (prev + 1) % ROLES.length);
+        } else {
+            timeout = setTimeout(() => {
+                setDisplayedText(prev =>
+                    isDeleting
+                        ? prev.slice(0, -1)
+                        : currentRole.slice(0, prev.length + 1)
+                );
+            }, isDeleting ? 60 : 100);
+        }
+
+        return () => clearTimeout(timeout);
+    }, [displayedText, isDeleting, roleIndex]);
+
     return (
         <>
             <MotionSection
                 initX={40}
                 initY={0}
                 className="max-[942px]:w-full relative flex justify-between max-[900px]:flex-col max-[900px]:items-center w-[947px] mt-[120px] h-auto z-50">
-                {/*pp*/}
                 <div className="flex justify-center items-center max-md:w-[130px] max-md:h-[130px] w-[250.11px] h-[250.11px]">
                     <Image
                         src="/profilePicture10.jpg"
@@ -22,7 +56,6 @@ const deskripsi = () => {
                     />
                 </div>
 
-                {/*nama deskripsi*/}
                 <div className="max-md:w-full max-md:mt-5 w-[632px] min-[900px]:h-[250.11px] max-[900px]:h-auto min-[900px]:items-center flex">
                     <div className="w-[696.89px] h-[174px] max-md:w-full max-md:flex-col max-md:flex max-md:items-center">
                         <div className="w-[596px] h-[55px] max-md:h-auto flex items-center max-md:w-full max-[900px]:justify-center">
@@ -30,6 +63,17 @@ const deskripsi = () => {
                                 Dimar Ilham Tamara
                             </h1>
                         </div>
+
+                        <div className="w-full h-auto mt-2 max-md:mt-1 flex items-center max-[900px]:justify-center max-md:mb-2">
+                            <h2 className="text-[22px] max-md:text-[15px] font-mono flex items-center">
+                                <span className="text-putih mr-2">I am a</span>
+                                <span className="text-tulisanBiru font-semibold">
+                                    {displayedText}
+                                </span>
+                                <span className="animate-pulse text-tulisanBiru ml-1">|</span>
+                            </h2>
+                        </div>
+
                         <div className="w-[306px] h-[25px] max-md:h-[18px] md:mt-[8px] flex items-center max-[900px]:w-full max-[900px]:justify-center">
                             <h1 className="text-putih font-semibold text-[24px] max-md:text-[18px]">
                                 &gt; dimartamara1@gmail
