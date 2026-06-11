@@ -36,7 +36,7 @@ const Navbar: FC = () => {
     }, []);
 
     return (
-        <div className={`fixed w-[calc(100%-24px)] max-w-[1300px] mx-auto h-16 max-md:h-13 px-5 max-md:px-2 top-[23px] left-1/2 -translate-x-1/2 ${visible ? "translate-y-0" : "-translate-y-[140%]"} transition-transform duration-300 z-100`}>
+        <div className={`fixed w-[calc(100%-24px)] max-w-[1300px] mx-auto h-16 max-md:h-13 px-5 max-md:px-2 top-[23px] left-1/2 -translate-x-1/2 ${visible ? "translate-y-0" : "-translate-y-[148%]"} transition-transform duration-300 z-100`}>
             <div className="rounded-2xl flex justify-between items-center h-full w-full bg-objekBiru">
                 <div className="flex ml-3 justify-center items-center w-[45px] h-[45px] max-md:w-[30px] max-md:h-[30px]">
                     <Link href="/">
