@@ -36,7 +36,7 @@ const Navbar: FC = () => {
     }, []);
 
     return (
-        <div className={`fixed max-w-[1300px] w-full h-16 px-5 max-md:px-2 top-[23px] left-1/2 transform -translate-x-1/2 ${visible ? "translate-y-0" : "-translate-y-[140%]"} transition-transform duration-300 z-100`}>
+        <div className={`fixed w-[calc(100%-24px)] max-w-[1300px] mx-auto h-16 max-md:h-13 px-5 max-md:px-2 top-[23px] left-1/2 -translate-x-1/2 ${visible ? "translate-y-0" : "-translate-y-[140%]"} transition-transform duration-300 z-100`}>
             <div className="rounded-2xl flex justify-between items-center h-full w-full bg-objekBiru">
                 <div className="flex ml-3 justify-center items-center w-[45px] h-[45px] max-md:w-[30px] max-md:h-[30px]">
                     <Link href="/">
@@ -50,8 +50,8 @@ const Navbar: FC = () => {
                     </Link>
                 </div>
 
-                <div className="flex flex-row gap-1 max-md:gap-5 lg:mr-7">
-                    <div className="w-[100px] max-md:mr-5 max-md:items-end max-md:w-[50px] md:mr-10 scale-111 h-auto flex flex-col items-center">
+                <div className="flex flex-row gap-8 justify-center items-center">
+                    <div className="w-[100px] max-md:items-end max-md:w-[50px] h-auto flex flex-col items-center">
                         <button
                             onClick={() => {
                                 const el = document.getElementById('projects-section');
@@ -67,7 +67,7 @@ justify-between h-[35px] max-md:h-[30px] bg-tulisanBiru/20 hover:bg-tulisanBiru/
                         </button>
                     </div>
 
-                    <div className="w-[100px] max-md:mr-5 max-md:items-end max-md:w-[50px] md:mr-10 scale-111 h-auto flex flex-col items-center">
+                    <div className="w-[100px] max-md:mr-5 max-md:items-end max-md:w-[50px] md:mr-15 h-auto flex flex-col items-center">
                         <button
                             onClick={handleClick}
                             className="rounded-2xl px-3 w-[115px] max-md:px-1 max-md:scale-90 flex 
@@ -77,7 +77,7 @@ justify-between h-[35px] max-md:h-[30px] bg-tulisanBiru/20 hover:bg-tulisanBiru/
                                     Skills
                                 </h1>
                             </div>
-                            <div className="w-auto scale-x-180 mr-1 h-auto mb-[2px] max-md:mb-[1px] flex items-center">
+                            <div className="w-auto max-md:hidden scale-x-180 mr-1 h-auto mb-[2px] max-md:mb-[1px] flex items-center">
                                 <h1 className="text-[20px] font-light text-[putih] max-md:text-[13px]">
                                     v
                                 </h1>

@@ -35,12 +35,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inconsolata.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inconsolata.variable} antialiased overflow-x-hidden`}
       >
         <div className="justify-items-center bg-[black]">
           <Navbar />
         </div>
-        <div className="bg-[black] w-full min-h-screen">
+        <div className="bg-[black] w-full min-h-screen overflow-x-hidden">
           <Bg_code />
           {children}
           <div className="w-full mt-10 h-15 pt-5">
