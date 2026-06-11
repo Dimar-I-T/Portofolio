@@ -23,20 +23,15 @@ function cleanDate(rawDate: Date): string {
     return date;
 }
 
-export async function getProjects(category: number = 0) {
+export async function getProjects(category: string = '') {
     try {
         let text = `
             select * from semua_project
         `
 
         let queryList = [];
-        if (category == 2) {
-            text += ' where judul_category ILIKE $1'
-            queryList.push('%web-development%');
-        } else if (category == 3) {
-            text += ' where judul_category ILIKE $1'
-            queryList.push('%game-development%');
-        }
+        text += ' where judul_category ILIKE $1'
+        queryList.push(`%${category}%`);
 
         const result = await pool.query(text, queryList);
         let dataRaw: ProjectRaw[] = result.rows;

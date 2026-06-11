@@ -68,9 +68,11 @@ export default function SkillClient({ skill_id, data, dataTools, dataLinks, proj
                 links={dataLinks}
                 id={String(param_id())}>
             </Links>
-            <div className="max-[1300px]:w-full items-center flex flex-col gap-2 w-[1300px] h-auto px-3 z-50">
-                <Projects projects={projects} />
-            </div>
+            {projects.length > 0 &&
+                <div id="projects-section" className="max-[1300px]:w-full items-center flex flex-col gap-2 w-[1300px] h-auto px-3 z-50">
+                    <Projects projects={projects} />
+                </div>
+            }
         </div>
     )
 }

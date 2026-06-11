@@ -72,7 +72,8 @@ export default async function Skill({ params }: SkillProps) {
     const idValue = param_id();
 
     try {
-        projectsData = await getProjects(idValue);
+        projectsData = await getProjects(skillId);
+
         const [descRes, toolsRes, linksRes] = await Promise.all([
             fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills?id=${idValue}`),
             fetch(`${process.env.NEXT_PUBLIC_API_URL}/api-user/skills-tools?id=${idValue}`),

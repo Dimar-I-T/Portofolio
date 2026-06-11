@@ -6,7 +6,7 @@ import ProjectCard from '@/app/components/ProjectCard';
 import { useMemo, useState } from "react";
 
 type ProjectsProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    projects: Project[]
+    projects: Project[],
 };
 
 const SORT_OPTIONS = [
@@ -32,21 +32,21 @@ const Projects = ({ projects }: ProjectsProps) => {
     }, [projects, sort]);
 
     return (
-        <div className="relative max-[900px]:mt-[50px] flex flex-col w-full h-auto mt-[109px] gap-10 justify-center max-[900px]:w-full">
-            <MotionSection
-                initX={40}
-                initY={0}
+        <div className="relative max-[900px]:mt-[50px] flex flex-col w-full h-auto mt-[109px] gap-10 justify-center max-[900px]:w-fullz">
+            <div
                 className="flex justify-center items-center w-full h-[55px]">
                 <h1 className="text-[55px] max-[900px]:text-[35px] text-putih font-semibold">
                     My Projects
                 </h1>
-            </MotionSection>
+            </div>
 
-            <MotionSection
-                initX={40}
-                initY={0}
+            <div
                 className="flex justify-center items-center flex-col w-full">
-                <div className="w-full flex justify-center md:justify-end mb-8">
+                <div className="w-full flex flex-col-reverse md:flex-row justify-between items-center mb-8 gap-5 md:gap-0">
+                    <div className="text-putih text-sm md:text-base font-medium tracking-wide">
+                        Showing <span className="text-tulisanBiru font-semibold">{sortedProjects.length}</span> projects
+                    </div>
+
                     <div className="flex items-center gap-1 bg-tulisanBiru/10 p-1.5 rounded-[32px] backdrop-blur-md shadow-lg">
                         {SORT_OPTIONS.map((o) => {
                             const isActive = sort === o.value;
@@ -55,8 +55,8 @@ const Projects = ({ projects }: ProjectsProps) => {
                                     key={o.value}
                                     onClick={() => setSort(o.value)}
                                     className={`flex items-center justify-center px-5 py-2 rounded-[32px] text-sm md:text-base font-medium transition-all duration-300 ${isActive
-                                            ? "bg-tulisanBiru/20 text-putih shadow-[0_0_15px_rgba(6,182,212,0.2)]"
-                                            : "text-gray-400 hover:text-white hover:bg-white/5"
+                                        ? "bg-tulisanBiru/20 text-putih shadow-[0_0_15px_rgba(6,182,212,0.2)]"
+                                        : "text-gray-400 hover:text-white hover:bg-white/5"
                                         }`}
                                 >
                                     {isActive && (
@@ -67,14 +67,20 @@ const Projects = ({ projects }: ProjectsProps) => {
                             );
                         })}
                     </div>
-
                 </div>
                 <div className="w-full flex flex-col gap-12">
                     {sortedProjects.map((isi, index) => (
-                        <ProjectCard isi={isi} key={index} />
+                        <MotionSection
+                            key={index}
+                            initX={index % 2 == 0 ? 40 : -40}
+                            initY={0}
+                            durationAnim={0.5}
+                        >
+                            <ProjectCard isi={isi} key={index} />
+                        </MotionSection>
                     ))}
                 </div>
-            </MotionSection>
+            </div>
         </div>
     )
 }

@@ -58,25 +58,31 @@ export default function SkillDeskripsi(
                         </h1>
                     </div>
                     <div className="w-auto flex items-center max-md:mt-2 mt-5 h-auto">
-                        {tools.length > 0 && <button
-                            onClick={() => klik()}
-                            className={`w-auto max-md:w-full max-w-[700px] max-md:justify-center p-[15px] flex flex-wrap md:justify-evenly max-md:gap-y-4 gap-3 h-auto bg-tulisanBiru/15 drop-shadow-[0_0_100px_#00006E] backdrop-blur-xs rounded-[20px] max-md:scale-90 transition-transform duration-300 hover:scale-102`}>
-                            {/* map s_logo yang dipass dari page.tsx dari backend */}
-                            {tools.map((isi, indeks) => (
-                                <div key={indeks} className={`flex flex-row items-center transition-all duration-300 ease-in-out`}>
-                                    <Image
-                                        src={optimizeUrl(isi.s_logo)}
-                                        alt="img"
-                                        height={35}
-                                        width={35}
-                                        className="object-cover max-md:size-[25px] size-[35px] object-center z-50"
-                                    />
-                                    {keteken && <h1 className="text-putih text-[20px] max-md:text-[15px] ml-3 mr-2 transition-opacity duration-500 ease-in-out opacity-100">
-                                        {isi.s_judul}
-                                    </h1>}
-                                </div>
-                            ))}
-                        </button>}
+                        {tools.length > 0 &&
+                            <div className="w-full flex flex-col max-md2:items-center items-start max-md:mt-4 h-auto">
+                                <span className="text-[13px] md:text-[14px] font-bold text-putih tracking-widest mb-3 ml-2 max-md2:ml-0">
+                                    My Tech Stack
+                                </span>
+                                <button
+                                    onClick={() => klik()}
+                                    className={`w-auto max-md:w-full max-w-[700px] max-md:justify-center p-[15px] flex flex-wrap md:justify-evenly max-md:gap-y-4 gap-3 h-auto bg-tulisanBiru/15 drop-shadow-[0_0_100px_#00006E] backdrop-blur-xs rounded-[20px] max-md:scale-90 transition-transform duration-300 hover:scale-102`}>
+                                    {tools.map((isi, indeks) => (
+                                        <div key={indeks} className={`flex flex-row items-center transition-all duration-300 ease-in-out`}>
+                                            <Image
+                                                src={optimizeUrl(isi.s_logo)}
+                                                alt="img"
+                                                height={35}
+                                                width={35}
+                                                className="object-cover max-md:size-[25px] size-[35px] object-center z-50"
+                                            />
+                                            {keteken && <h1 className="text-putih text-[20px] max-md:text-[15px] ml-3 mr-2 transition-opacity duration-500 ease-in-out opacity-100">
+                                                {isi.s_judul}
+                                            </h1>}
+                                        </div>
+                                    ))}
+                                </button>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

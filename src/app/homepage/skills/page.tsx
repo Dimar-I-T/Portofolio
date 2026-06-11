@@ -37,7 +37,7 @@ const skills = () => {
                             tujuan='web-development'
                             namaFoto="react"
                             text="Web Development"
-                            texts={['TypeScript, SQL', 'React.js, Next.js, Django', 'Tailwind CSS']}>
+                            texts={['TypeScript, SQL, MongoDB', 'React.js, Next.js, Django', 'Tailwind CSS']}>
                         </SkillsButton>
                     </MotionSection>
                 </div>
@@ -50,8 +50,8 @@ const skills = () => {
                         <SkillsButton
                             tujuan='game-development'
                             namaFoto="unity"
-                            text="Game Development"
-                            texts={['C#', 'Unity', 'Object Oriented Programming']}>
+                            text="Game & App Development"
+                            texts={['C#, Java, Dart', 'Unity, Spring Boot, Flutter', 'Object Oriented Programming']}>
                         </SkillsButton>
                     </MotionSection>
                     <MotionSection

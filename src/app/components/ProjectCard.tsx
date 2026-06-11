@@ -44,7 +44,7 @@ export default function ProjectCard({ isi }: any) {
 
                     <div className="flex flex-wrap gap-3 mt-2">
                         {isi.tool_logo_url.map((logo: any, index1: any) => (
-                            <div key={index1} className="p-2 bg-putih/5 rounded-xl backdrop-blur-md hover:scale-110 transition-transform">
+                            <div key={index1} className="p-2 bg-putih/5 rounded-xl backdrop-blur-md">
                                 <NextImage
                                     blurDataURL={optimizeUrl(logo)}
                                     placeholder='blur'
